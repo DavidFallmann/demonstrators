@@ -1,0 +1,35 @@
+<div class="sidebar" data="blue">
+        <!--
+          Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
+      -->
+  <div class="sidebar-wrapper">
+    <div class="logo">
+      <a href="javascript:void(0)" class="simple-text logo-normal">
+        Overview
+      </a>
+    </div>
+
+    <ul class="nav">
+      <li class="{% if segment == 'index' %} active {% endif %}">
+        <a href="/">
+          <i class="tim-icons icon-chart-pie-36"></i>
+          <p>EDDIE</p>
+        </a>
+      </li>
+
+      <li class="{% if segment == 'aiida' %} active {% endif %}">
+        <a href="/aiida/">
+          <i class="tim-icons icon-chart-bar-32"></i>
+          <p>AiiDA</p>
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'logout' %}">
+          <i class="tim-icons icon-button-power"></i>
+          <p>Logout</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

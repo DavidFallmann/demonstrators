@@ -1,0 +1,1523 @@
+{
+  "MessageDocumentHeader": {
+    "creationDateTime": "2026-03-04T23:45:04Z",
+    "MessageDocumentHeader_MetaInformation": {
+      "connectionid": null,
+      "permissionid": "6841f96e-d7a6-483f-9f99-bd4604c3c8a2",
+      "dataNeedid": "ca51cc60-ebcb-4bf7-a3e5-cec14025cfa5",
+      "dataType": "validated-historical-data-market-document",
+      "MessageDocumentHeader_Region": {
+        "connector": "at-eda",
+        "country": "NAT"
+      }
+    }
+  },
+  "ValidatedHistoricalData_MarketDocument": {
+    "mRID": "AT002000202603042251433427695991477",
+    "revisionNumber": "0.82",
+    "type": "A45",
+    "createdDateTime": "2026-03-04T21:51:43Z",
+    "description": null,
+    "sender_MarketParticipant.mRID": {
+      "codingScheme": "NAT",
+      "value": "AT002000"
+    },
+    "sender_MarketParticipant.marketRole.type": "A26",
+    "receiver_MarketParticipant.mRID": {
+      "codingScheme": "NAT",
+      "value": "EP100371"
+    },
+    "receiver_MarketParticipant.marketRole.type": "A13",
+    "process.processType": "A16",
+    "period.timeInterval": {
+      "start": "2026-03-02T23:00Z",
+      "end": "2026-03-03T23:00Z"
+    },
+    "TimeSeriesList": {
+      "TimeSeries": [
+        {
+          "mRID": "b77ef48e-c45d-42b3-bdf2-dcb4b2c48d4f",
+          "businessType": "A04",
+          "product": "8716867000030",
+          "version": "01.41",
+          "in_Domain.mRID": null,
+          "out_Domain.mRID": null,
+          "flowDirection.direction": "A02",
+          "marketEvaluationPoint.mRID": {
+            "codingScheme": "NAT",
+            "value": "AT0020000000000000000000100341061"
+          },
+          "marketEvaluationPoint.meterReadings.mRID": null,
+          "marketEvaluationPoint.meterReadings.readings.mRID": null,
+          "marketEvaluationPoint.meterReadings.readings.ReadingType.accumulate": null,
+          "marketEvaluationPoint.meterReadings.readings.ReadingType.aggregation": null,
+          "marketEvaluationPoint.meterReadings.readings.ReadingType.commodity": null,
+          "marketEvaluationPoint.usagePointLocation.geoInfoReference": null,
+          "energy_Measurement_Unit.name": "KWH",
+          "energyQuality_Measurement_Unit.name": null,
+          "registration_DateAndOrTime.dateTime": {
+            "date": "2026-03-04T00:00:00.000+00:00",
+            "time": null,
+            "dateTime": null
+          },
+          "RegisteredResource": {
+            "mRID": "1-1:1.9.0 G.01",
+            "name": null,
+            "description": null,
+            "fuel.fuel": null,
+            "location.mRID": null,
+            "location.name": null,
+            "location.positionPoints.sequenceNumber": null,
+            "location.positionPoints.xPosition": null,
+            "location.positionPoints.yPosition": null,
+            "location.positionPoints.zPosition": null,
+            "location.coordinateSystem.crsUrn": null,
+            "pSRType.psrType": null,
+            "ResourceCapacityList": {
+              "ResourceCapacity": null
+            }
+          },
+          "Series_PeriodList": {
+            "Series_Period": [
+              {
+                "timeInterval": {
+                  "start": "2026-03-02T23:00Z",
+                  "end": "2026-03-03T23:00Z"
+                },
+                "resolution": "PT15M",
+                "PointList": {
+                  "Point": [
+                    {
+                      "position": "0",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.312,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "1",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.15,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "2",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.101,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "3",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.144,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "4",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.338,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "5",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.364,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "6",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.448,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "7",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.306,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "8",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.122,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "9",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.288,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "10",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.335,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "11",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.191,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "12",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.106,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "13",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.127,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "14",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.111,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "15",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.241,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "16",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.366,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "17",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.18,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "18",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.122,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "19",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.168,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "20",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.417,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "21",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.457,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "22",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.455,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "23",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.329,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "24",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.379,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "25",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.358,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "26",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.631,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "27",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.655,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "28",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.992,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "29",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 1.182,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "30",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.661,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "31",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.132,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "32",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.333,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "33",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.267,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "34",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.159,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "35",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.002,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "36",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.003,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "37",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.001,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "38",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "39",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "40",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "41",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "42",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "43",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "44",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "45",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "46",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "47",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "48",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "49",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "50",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "51",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "52",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "53",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "54",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "55",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "56",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "57",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "58",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "59",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "60",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "61",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "62",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "63",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "64",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.002,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "65",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.019,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "66",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.004,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "67",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.068,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "68",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.09,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "69",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.337,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "70",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.34,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "71",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.681,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "72",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.462,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "73",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.463,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "74",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.575,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "75",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.621,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "76",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.659,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "77",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.66,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "78",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.894,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "79",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.347,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "80",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.427,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "81",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.585,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "82",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.568,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "83",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.392,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "84",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.474,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "85",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.352,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "86",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.828,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "87",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.303,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "88",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.28,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "89",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.121,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "90",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.138,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "91",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.142,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "92",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.321,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "93",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.306,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "94",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.124,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "95",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.142,
+                      "energy_Quantity.quality": "A04"
+                    }
+                  ]
+                },
+                "ReasonList": {
+                  "Reason": null
+                }
+              }
+            ]
+          },
+          "ReasonList": {
+            "Reason": [
+              {
+                "text": "00",
+                "code": "999"
+              }
+            ]
+          }
+        },
+        {
+          "mRID": "d60fe952-9744-412e-b47f-22ab6fb16fe6",
+          "businessType": "A04",
+          "product": "8716867000030",
+          "version": "01.41",
+          "in_Domain.mRID": null,
+          "out_Domain.mRID": null,
+          "flowDirection.direction": "A02",
+          "marketEvaluationPoint.mRID": {
+            "codingScheme": "NAT",
+            "value": "AT0020000000000000000000100341061"
+          },
+          "marketEvaluationPoint.meterReadings.mRID": null,
+          "marketEvaluationPoint.meterReadings.readings.mRID": null,
+          "marketEvaluationPoint.meterReadings.readings.ReadingType.accumulate": null,
+          "marketEvaluationPoint.meterReadings.readings.ReadingType.aggregation": null,
+          "marketEvaluationPoint.meterReadings.readings.ReadingType.commodity": null,
+          "marketEvaluationPoint.usagePointLocation.geoInfoReference": null,
+          "energy_Measurement_Unit.name": "KWH",
+          "energyQuality_Measurement_Unit.name": null,
+          "registration_DateAndOrTime.dateTime": {
+            "date": "2026-03-04T00:00:00.000+00:00",
+            "time": null,
+            "dateTime": null
+          },
+          "RegisteredResource": {
+            "mRID": "1-1:1.9.0 P.01",
+            "name": null,
+            "description": null,
+            "fuel.fuel": null,
+            "location.mRID": null,
+            "location.name": null,
+            "location.positionPoints.sequenceNumber": null,
+            "location.positionPoints.xPosition": null,
+            "location.positionPoints.yPosition": null,
+            "location.positionPoints.zPosition": null,
+            "location.coordinateSystem.crsUrn": null,
+            "pSRType.psrType": null,
+            "ResourceCapacityList": {
+              "ResourceCapacity": null
+            }
+          },
+          "Series_PeriodList": {
+            "Series_Period": [
+              {
+                "timeInterval": {
+                  "start": "2026-03-02T23:00Z",
+                  "end": "2026-03-03T23:00Z"
+                },
+                "resolution": "PT15M",
+                "PointList": {
+                  "Point": [
+                    {
+                      "position": "0",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.312,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "1",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.15,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "2",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.101,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "3",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.144,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "4",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.338,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "5",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.364,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "6",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.448,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "7",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.306,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "8",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.122,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "9",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.288,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "10",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.335,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "11",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.191,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "12",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.106,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "13",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.127,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "14",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.111,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "15",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.241,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "16",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.366,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "17",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.18,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "18",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.122,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "19",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.168,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "20",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.417,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "21",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.457,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "22",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.455,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "23",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.329,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "24",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.379,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "25",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.358,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "26",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.631,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "27",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.655,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "28",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.992,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "29",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 1.182,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "30",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.661,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "31",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.132,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "32",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.333,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "33",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.267,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "34",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.159,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "35",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.001987,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "36",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.002723,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "37",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "38",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "39",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "40",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "41",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "42",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "43",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "44",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "45",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "46",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "47",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "48",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "49",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "50",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "51",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "52",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "53",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "54",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "55",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "56",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "57",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "58",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "59",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "60",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "61",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "62",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "63",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "64",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.001628,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "65",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.017958,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "66",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.002313,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "67",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.068,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "68",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.09,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "69",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.337,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "70",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.34,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "71",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.681,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "72",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.462,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "73",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.463,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "74",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.575,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "75",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.621,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "76",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.659,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "77",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.66,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "78",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.894,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "79",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.347,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "80",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.427,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "81",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.585,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "82",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.568,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "83",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.392,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "84",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.474,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "85",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.352,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "86",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.828,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "87",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.303,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "88",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.28,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "89",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.121,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "90",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.138,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "91",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.142,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "92",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.321,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "93",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.306,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "94",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.124,
+                      "energy_Quantity.quality": "A04"
+                    },
+                    {
+                      "position": "95",
+                      "energyQuality_Quantity.quantity": null,
+                      "energyQuality_Quantity.quality": null,
+                      "energy_Quantity.quantity": 0.142,
+                      "energy_Quantity.quality": "A04"
+                    }
+                  ]
+                },
+                "ReasonList": {
+                  "Reason": null
+                }
+              }
+            ]
+          },
+          "ReasonList": {
+            "Reason": [
+              {
+                "text": "00",
+                "code": "999"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,647 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block stylesheets %}
+<!-- Add your specific page CSS here if needed -->
+<style>
+    /* Minimal spinner animation */
+    .spinner {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #3498db; /* The spinning color */
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        animation: spin 1s linear infinite;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .loading-text {
+        display: inline-block;
+        margin-left: 10px;
+        font-weight: 600;
+        color: #555;
+    }
+
+    .kpi-container .col {
+        background-color: #FFFFFF;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 15px;
+        min-width: 120px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease;
+    }
+
+    .kpi-container .col:hover {
+        transform: scale(1.03);
+    }
+
+    .kpi-container strong {
+        display: block;
+        font-size: 16px;
+        color: #000000;
+    }
+
+    .kpi-container small {
+        color: #adb5bd;
+    }
+
+
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+<div class="content">
+    <!-- Energy Consumption Chart -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h2 class="card-title">Energy Consumption Overview</h2>
+                </div>
+
+                <div class="card-body">
+                    <!-- KPIs for Energy Consumption -->
+                    <div id="consumption_kpis" class="kpi-container row text-center mb-4"
+                         style="font-size: 14px;"></div>
+                </div>
+
+                <div class="card-body">
+                    <!-- Loading placeholder for consumption data -->
+                    <div id="energy_loading_indicator">
+                        <span class="spinner"></span>
+                        <span class="loading-text">Loading your consumption data ...</span>
+                    </div>
+                    <div id="energy_graph_container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile of Your Consumption (Emission Data) -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h2 class="card-title">Carbon Footprint Analysis</h2>
+                </div>
+
+                <div class="card-body">
+                    <!-- KPIs-->
+                    <div id="emission_kpis" class="kpi-container row text-center mb-4" style="font-size: 14px;"></div>
+                </div>
+
+                <div class="card-body">
+                    <!-- Loading placeholder for emission data -->
+                    <div id="emission_loading_indicator">
+                        <span class="spinner"></span>
+                        <span class="loading-text">Loading your emission data ...</span>
+                    </div>
+                    <div id="emission_graph_container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- aWATTar Prices for the Next Day -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h2 class="card-title">Energy Market Price Forecast</h2>
+                </div>
+
+
+                <div class="card-body">
+                    <div id="awattar_kpis" class="kpi-container row text-center mb-4"
+                         style="font-size: 14px; display: none;"></div>
+                </div>
+
+                <div class="card-body">
+
+                    <!-- Loading placeholder for awattar prices -->
+                    <div id="awattar_loading_indicator">
+                        <span class="spinner"></span>
+                        <span class="loading-text">Loading energy market prices ...</span>
+                    </div>
+                    <div id="awattar_price_chart" style="width:100%;height:300px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Prediction for Tomorrow -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h2 class="card-title">NEXT DAY PREDICTION</h2>
+                </div>
+
+                <div class="card-body">
+                    <div id="forecast_kpis" class="kpi-container row text-center mb-4"
+                         style="font-size: 14px; display: none;"></div>
+                </div>
+                <div class="card-body">
+
+                    <!-- Loading placeholder for prediction data -->
+                    <div id="prediction_loading_indicator">
+                        <span class="spinner"></span>
+                        <span class="loading-text">Loading next day prediction ...</span>
+                    </div>
+                    <div id="prediction_graph_container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Compare Energy Prices -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title text-center">Compare Energy Prices</h2>
+                </div>
+                <div class="card-body">
+                    <form id="compare-form" method="post" action="">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            {{ form.fixed_tariff.label_tag }}
+                            {{ form.fixed_tariff }}
+                        </div>
+                        <button type="submit" class="btn btn-info btn-block">Compare with Epex spot price</button>
+                    </form>
+
+                    <!-- Success and Error Messages -->
+                    {% if success %}
+                    <div class="card-body">
+                        <div id="compare_kpis" class="kpi-container row text-center mb-4"
+                             style="font-size: 14px; display: none;"></div>
+                    </div>
+                    {% endif %}
+
+                    {% if error %}
+                    <div class="alert alert-danger alert-with-icon mt-3">
+                        <i class="tim-icons icon-alert-circle-exc"></i>
+                        <div>{{ error|linebreaks }}</div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block javascripts %}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<script>
+    (function () {
+        const log_url = "https://flo.cosylab.at/eddie/inspectors_v1/logNik.php";
+        const pid = {{ request.user.id|default:"0" }};
+
+        window._logExternal = function(state, comment) {
+            const url = `${log_url}?participant_id=${pid}&state=${state}&comment=${encodeURIComponent(comment||"0")}`;
+            fetch(url, { method: "GET", keepalive: true }).catch(()=>{});
+        };
+
+
+        window._debounce = function(fn, ms=600){ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a), ms); }; };
+    })();
+
+    function filterToLocalDay(entries, dateField) {
+        const localMidnight = new Date();
+        localMidnight.setHours(0, 0, 0, 0);
+        const localEnd = new Date(localMidnight);
+        localEnd.setHours(24, 0, 0, 0);
+
+        return entries.filter(entry => {
+            const localTime = new Date(entry[dateField]);
+            return localTime >= localMidnight && localTime < localEnd;
+        });
+    }
+
+    try {
+        var metering_points = JSON.parse('{{ metering_points_json|escapejs }}');
+    } catch (error) {
+        console.error('Error parsing data:', error);
+    }
+    try {
+        loadConsumptionData()
+        loadEmissionData()
+        loadAwattarData()
+        loadPredictionData()
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+
+    async function loadConsumptionData() {
+        const res = await fetch("{% url 'consumption' %}");
+        if (!res.ok) {
+            throw new Error(`HTTP ${res.status}`);
+        }
+        const data = await res.json();
+        const consumption_data = data.consumption_data;
+        if (checkIfDataNull(consumption_data)) {
+            document.getElementById('energy_loading_indicator').innerHTML = '<span class="loading-text">No data available.</span>';
+        }
+
+        const consumption_start_end = data.consumption_start_end;
+        const curr_mp = metering_points[0];
+        const curr_data = consumption_data[curr_mp.metering_point];
+        const curr_start_end = consumption_start_end[curr_mp.metering_point];
+
+        if (curr_data) {
+            const dates = curr_data.map(item => item.timestamp);
+            const consumptionValues = curr_data.map(item => item.consumption_value);
+            const plotlyData = [{
+                x: dates,
+                y: consumptionValues,
+                type: 'bar'
+            }];
+
+            function formatDate(dateString) {
+                const options = {year: 'numeric', month: 'long', day: 'numeric'};
+                return new Date(dateString).toLocaleDateString(undefined, options);
+            }
+
+            const formattedStart = formatDate(curr_start_end.start);
+            const formattedEnd = formatDate(curr_start_end.end);
+            const title = `${formattedStart} - ${formattedEnd}`;
+            const layout = {
+                title: title,
+                xaxis: {title: 'Date and Time (UTC) '},
+                yaxis: {title: 'Energy Consumption (kWh)'},
+                height: 300
+            };
+            const chartId = `energy_graph_${0}`;
+            const chartDiv = document.createElement('div');
+            chartDiv.id = chartId;
+            const downloadButton = document.createElement('a');
+            downloadButton.href = "{% url 'download_consumption_data' %}?metering_point=" + curr_mp.metering_point;
+            downloadButton.className = 'btn btn-info btn-block';
+            downloadButton.style = 'margin-top: 10px; margin-bottom: 10px;';
+            downloadButton.textContent = 'Download Consumption Data';
+            downloadButton.addEventListener('click', () => {
+                _logExternal(5, "Data downloaded", 700);
+            });
+
+            document.getElementById('energy_graph_container').appendChild(chartDiv);
+            document.getElementById('energy_graph_container').appendChild(downloadButton);
+            Plotly.newPlot(chartId, plotlyData, layout);
+            document.getElementById(chartId).on('plotly_relayout', _debounce(() => {
+                _logExternal(6, "EC-char - interaction");
+            }, 700));
+        }
+        // === Calculate KPIs for Energy Consumption ===
+        if (curr_data && curr_data.length > 0) {
+            const dates = curr_data.map(item => new Date(item.timestamp));
+            const values = curr_data.map(item => item.consumption_value);
+
+            const total = values.reduce((a, b) => a + b, 0);
+            const avg = total / values.length;
+
+            const max = Math.max(...values);
+            const min = Math.min(...values);
+            const maxIndex = values.indexOf(max);
+            const minIndex = values.indexOf(min);
+            const maxTime = new Date(dates[maxIndex]);
+            const minTime = new Date(dates[minIndex]);
+
+            document.getElementById("consumption_kpis").innerHTML = `    <div class="col" id="kpi-e-total"><strong>Total</strong><br>${total.toFixed(2)} kWh</div>
+    <div class="col" id="kpi-e-avergage"><strong>Average</strong><br>${avg.toFixed(2)} kWh</div>
+    <div class="col" id="kpi-e-max"><strong>Max</strong><br>${max.toFixed(2)} kWh<br><small>${maxTime.toLocaleString()}</small></div>
+    <div class="col" id="kpi-e-min"><strong>Min</strong><br>${min.toFixed(2)} kWh<br><small>${minTime.toLocaleString()}</small></div>
+
+</div>
+
+`;
+        }
+        document.getElementById("kpi-e-total").addEventListener("mouseenter", () => {
+            _logExternal(40, "Hover on KPI: Total", 700);
+        });
+        // Hide consumption loading spinner after plotting
+        document.getElementById('energy_loading_indicator').style.display = 'none';
+    }
+
+    async function loadAwattarData() {
+        const res = await fetch("{% url 'awattar' %}");
+        if (!res.ok) {
+            throw new Error(`HTTP ${res.status}`);
+        }
+        const data = await res.json();
+        const awattar_data = data.next_24h_data;
+        if (checkIfDataNull(awattar_data)) {
+            document.getElementById('awattar_loading_indicator').innerHTML = '<span class="loading-text">No data available.</span>';
+        }
+
+        let prices = undefined;
+        let priceDates = undefined;
+        if (awattar_data && awattar_data.length > 0) {
+            // Filter to today's local calendar day (00:00–23:59 local time)
+            const filteredPriceData = filterToLocalDay(awattar_data, "start_timestamp");
+            priceDates = filteredPriceData.map(entry => new Date(entry.start_timestamp));
+            prices = filteredPriceData.map(entry => parseFloat(entry.marketprice) * 0.1);
+
+            // X-axis: today local midnight → tomorrow local midnight
+            const todayMidnight = new Date();
+            todayMidnight.setHours(0, 0, 0, 0);
+            const tomorrowMidnight = new Date(todayMidnight);
+            tomorrowMidnight.setDate(tomorrowMidnight.getDate() + 1);
+
+            const todayLabel = todayMidnight.toLocaleDateString(undefined, {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
+
+            const awattarData = [{
+                x: priceDates,
+                y: prices,
+                type: 'scatter',
+                mode: 'lines+markers',
+                name: 'Market Price (Cent/kWh)',
+                line: { color: '#f0a500' },
+                marker: { color: '#f0a500' }
+            }];
+            const awattarLayout = {
+                title: 'Electricity Prices – ' + todayLabel,
+                xaxis: {
+                    title: 'Time of Day',
+                    type: 'date',
+                    range: [todayMidnight, tomorrowMidnight],
+                    tickformat: '%H:%M'
+                },
+                yaxis: {
+                    title: 'Price (Cent/kWh)',
+                    tickmode: 'linear',
+                    dtick: 2
+                },
+                height: 300
+            };
+            Plotly.newPlot('awattar_price_chart', awattarData, awattarLayout);
+            document.getElementById('awattar_price_chart').on('plotly_relayout', _debounce(() => {_logExternal(8, "EMPF-char - interaction ");}, 700))
+        }
+        // === Build KPIs for aWATTar Prices ==
+
+        if (prices && prices.length > 0) {
+            const total = prices.reduce((a, b) => a + b, 0);
+            const avg = total / prices.length;
+
+            const max = Math.max(...prices);
+            const min = Math.min(...prices);
+            const maxIndex = prices.indexOf(max);
+            const minIndex = prices.indexOf(min);
+            const maxTime = new Date(priceDates[maxIndex]).toLocaleString();
+            const minTime = new Date(priceDates[minIndex]).toLocaleString();
+            const range = (max - min).toFixed(2);
+
+            document.getElementById('awattar_kpis').innerHTML = `    <div class="col"><strong>Average Price</strong><br>${avg.toFixed(2)} Cent/kWh</div>
+    <div class="col"><strong>Highest Price</strong><br>${max.toFixed(2)} Cent/kWh<br><small>${maxTime}</small></div>
+    <div class="col"><strong>Lowest Price</strong><br>${min.toFixed(2)} Cent/kWh<br><small>${minTime}</small></div>
+    <div class="col"><strong>Range</strong><br>${range} Cent/kWh</div>`;
+            document.getElementById('awattar_kpis').style.display = 'flex';
+        }
+
+        // Hide awattar loading spinner
+        document.getElementById('awattar_loading_indicator').style.display = 'none';
+    }
+
+    async function loadEmissionData() {
+        const res = await fetch("{% url 'emissions' %}");
+        if (!res.ok) {
+            throw new Error(`HTTP ${res.status}`);
+        }
+        const data = await res.json();
+        const emission_data = data.emission_data;
+        if (checkIfDataNull(emission_data)) {
+            document.getElementById('emission_loading_indicator').innerHTML = '<span class="loading-text">No data available.</span>';
+        }
+
+        let emissionValues = undefined;
+        const curr_mp = metering_points[0];
+
+        const curr_data = emission_data[curr_mp.metering_point];
+        let dates = undefined;
+        if (curr_data) {
+            dates = curr_data.map(item => item.timestamp);
+            emissionValues = curr_data.map(item => item.emission_value);
+            const plotlyData = [{
+                x: dates,
+                y: emissionValues,
+                type: 'bar',
+                marker: {color: '#b81414'}
+            }];
+
+            function formatDate(dateString) {
+                const options = {year: 'numeric', month: 'long', day: 'numeric'};
+                return new Date(dateString).toLocaleDateString(undefined, options);
+            }
+
+            const formattedStart = formatDate(dates[0]);
+            const formattedEnd = formatDate(dates[dates.length - 1]);
+            const title = `${formattedStart} - ${formattedEnd}`;
+            const layout = {
+                title: title,
+                xaxis: {title: 'Date and Time (UTC)'},
+                yaxis: {title: 'Emissions (gCO2eq)'},
+                height: 300
+            };
+            const chartId = `emission_graph_${0}`;
+            const chartDiv = document.createElement('div');
+            chartDiv.id = chartId;
+            document.getElementById('emission_graph_container').appendChild(chartDiv);
+            Plotly.newPlot(chartId, plotlyData, layout);
+            document.getElementById(chartId).on('plotly_relayout', _debounce(() => {
+                _logExternal(7, "CFA-char - interaction");
+            }, 700));
+        }
+
+        // === Build Emission KPIs ===
+        if (emissionValues && emissionValues.length > 0) {
+            const total = emissionValues.reduce((a, b) => a + b, 0);
+            const avg = total / emissionValues.length;
+            const max = Math.max(...emissionValues);
+            const min = Math.min(...emissionValues);
+            const maxTime = new Date(dates[emissionValues.indexOf(max)]).toLocaleString();
+            const minTime = new Date(dates[emissionValues.indexOf(min)]).toLocaleString();
+
+            document.getElementById('emission_kpis').innerHTML = `    <div class="col"><strong>Total</strong><br>${total.toFixed(2)} gCO₂e</div>
+    <div class="col"><strong>Average</strong><br>${avg.toFixed(2)} gCO₂e</div>
+    <div class="col"><strong>Peak</strong><br>${max.toFixed(2)} gCO₂e<br><small>${maxTime}</small></div>
+    <div class="col"><strong>Minimum</strong><br>${min.toFixed(2)} gCO₂e<br><small>${minTime}</small></div>`;
+        }
+        // Hide emission loading spinner
+        document.getElementById('emission_loading_indicator').style.display = 'none';
+    }
+
+
+    async function loadPredictionData() {
+        const res = await fetch("{% url 'predictions' %}");
+        if (!res.ok) {
+            throw new Error(`HTTP ${res.status}`);
+        }
+        const data = await res.json();
+        const prediction_start_end = data.prediction_start_end;
+        if (checkIfDataNull(prediction_start_end)) {
+            document.getElementById('prediction_loading_indicator').innerHTML = '<span class="loading-text">No data available.</span>';
+        }
+
+        const curr_mp = metering_points[0];
+        const curr_data = data.prediction_data[curr_mp.metering_point];
+        const curr_start_end = prediction_start_end[curr_mp.metering_point];
+
+        let dates = undefined;
+        if (curr_data && curr_data.length > 0 && curr_start_end) {
+            dates = curr_data.map(item => item.timestamp);
+            const predictionValues = curr_data.map(item => Number(item.prediction_value));
+
+            if (predictionValues && predictionValues.length > 0) {
+                const total = predictionValues.reduce((a, b) => a + b, 0);
+                const avg = total / predictionValues.length;
+                const max = Math.max(...predictionValues);
+                const min = Math.min(...predictionValues);
+                const maxIndex = predictionValues.indexOf(max);
+                const minIndex = predictionValues.indexOf(min);
+                const maxTime = new Date(dates[maxIndex]).toLocaleString();
+                const minTime = new Date(dates[minIndex]).toLocaleString();
+
+                const forecastKpiHtml = ` <div class="col"><strong>Total Forecasted</strong><br>${total.toFixed(2)} kWh</div>
+                                      <div class="col"><strong>Average per Hour</strong><br>${avg.toFixed(2)} kWh</div>
+                                      <div class="col"><strong>Peak Hour</strong><br>${max.toFixed(2)} kWh<br><small>${maxTime}</small></div>
+                                      <div class="col"><strong>Lowest Hour</strong><br>${min.toFixed(2)} kWh<br><small>${minTime}</small></div>`;
+                const kpiBox = document.getElementById("forecast_kpis");
+                kpiBox.innerHTML = forecastKpiHtml;
+                kpiBox.style.display = "flex";
+            }
+
+            const predictionTrace = {
+                x: dates.map(t => new Date(t)),
+                y: predictionValues,
+                type: 'bar',
+                name: 'Predicted Consumption (kWh)',
+                marker: {color: '#1F77B4'},
+                hovertemplate: '%{x|%H:%M}<br>%{y:.3f} kWh'
+            };
+
+            const plotData = [predictionTrace];
+            // Derive x-axis range from actual data (00:00–23:59 of the prediction day)
+            const firstPredDate = new Date(dates[0]);
+            const predDayStart = new Date(firstPredDate);
+            predDayStart.setHours(0, 0, 0, 0);
+            const predDayEnd = new Date(predDayStart);
+            predDayEnd.setHours(24, 0, 0, 0);
+
+            const predDayLabel = predDayStart.toLocaleDateString(undefined, {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
+
+            const layout = {
+                title: 'Consumption Forecast – ' + predDayLabel,
+                xaxis: {
+                    title: 'Time of Day',
+                    type: 'date',
+                    range: [predDayStart, predDayEnd],
+                    tickformat: '%H:%M'
+                },
+                yaxis: {title: 'Consumption (kWh)'},
+                yaxis2: {
+                    title: 'Cost (€)',
+                    overlaying: 'y',
+                    side: 'right'
+                },
+                height: 300
+            };
+            const chartId = `prediction_graph_${0}`;
+            const chartDiv = document.createElement('div');
+            chartDiv.id = chartId;
+            document.getElementById('prediction_graph_container').appendChild(chartDiv);
+            Plotly.newPlot(chartId, plotData, layout);
+            document.getElementById(chartId).on('plotly_relayout', _debounce(() => {_logExternal(9, "NDP-char - interaction ");}, 700))
+        }
+        // Hide prediction loading spinner
+        document.getElementById('prediction_loading_indicator').style.display = 'none';
+
+        // AWATTAR COMPARE KPI
+        let cost_graph_data = [];
+        {%if cost_graph_data %}
+        cost_graph_data = JSON.parse('{{ cost_graph_data|escapejs }}');
+        {%endif %}
+        if (cost_graph_data.length > 0) {
+            const fixedCosts = cost_graph_data.map(d => d.fixed_cost);
+            const dynamicCosts = cost_graph_data.map(d => d.dynamic_cost);
+
+            const totalFixed = fixedCosts.reduce((a, b) => a + b, 0).toFixed(2);
+            const totalDynamic = dynamicCosts.reduce((a, b) => a + b, 0).toFixed(2);
+            const costDiff = (totalFixed - totalDynamic).toFixed(2);
+            const savingsPercent = ((costDiff / totalFixed) * 100).toFixed(1);
+
+            const kpiHtml = `
+      <div class="col"><strong>Total Fixed Cost</strong><br>€${totalFixed}</div>
+      <div class="col"><strong>Total Dynamic Cost</strong><br>€${totalDynamic}</div>
+      <div class="col"><strong>Cost Difference</strong><br>€${costDiff}</div>
+      <div class="col"><strong>Savings</strong><br>${savingsPercent}%</div>
+    `;
+
+            const kpiContainer = document.getElementById('compare_kpis');
+            kpiContainer.innerHTML = kpiHtml;
+            kpiContainer.style.display = 'flex';
+
+            const now = new Date();
+
+            // use only data since now
+            const costFiltered = cost_graph_data.filter(item => new Date(item.timestamp) >= now);
+            const from = new Date(dates[0]);
+            const to = new Date(dates[dates.length - 1]);
+            const costAligned = costFiltered.filter(item => {
+                const t = new Date(item.timestamp);
+                return t >= from && t <= to;
+            });
+
+            const costDates = costAligned.map(item => item.timestamp);
+            const costValues = costAligned.map(item => Number(item.dynamic_cost));
+
+            const costTrace = {
+                x: costDates,
+                y: costValues,
+                type: 'scatter',
+                mode: 'lines+markers',
+                name: 'Predicted Costs (€)',
+                yaxis: 'y2',
+                marker: {color: '#b81414'},
+                hovertemplate: '%{x}<br>€%{y}',
+            };
+
+            Plotly.addTraces('prediction_graph_0', costTrace);
+        }
+    }
+
+    function checkIfDataNull(data) {
+        if (data == null) return true;
+        if (typeof data === 'string') return data.trim() === '';
+        if (Array.isArray(data)) return data.length === 0;
+        if (typeof data === 'object') return Object.keys(data).length === 0;
+
+        return false;
+    }
+
+</script>
+
+{% endblock javascripts %}

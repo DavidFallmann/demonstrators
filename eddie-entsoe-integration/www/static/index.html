@@ -1,0 +1,96 @@
+<!doctype html>
+
+<head>
+    <title>Energy Production Data Service (EPDS)</title>
+    
+    <style>
+        body { padding-left: 15px; font-family: monospace; }
+        h1,h2,h3,h4 { font-family: Impact; color: DarkOliveGreen;  }
+        a { color: DarkOliveGreen; }
+    </style>
+</head>
+
+<body>
+    <!--
+    <script type="module" src="https://framework.eddie.energy/lib/eddie-components.js"></script> 
+    <eddie-connect-button id="ecButton" class="uk-display-block" connection-id="YOUR_CONNECTION_ID" data-need-id="9755f181-e653-4b5d-acf6-5cc4799b05d8"></eddie-connect-button>
+    -->
+    <h2>Energy Production Data Service</h2>
+    <strong>See API definition below</strong>
+    <br>
+    or check out the <a href="./gui" >Test GUI</a>
+    <br><br>
+
+    <h3>REST API definition</h3>
+
+    <h4>GET /api/production-by-type</h4>
+    Parameters:
+    <ul>
+        <li>zone</li>
+        <li>start</li>
+        <li>end</li>
+        <li>aggregate</li>
+    </ul>
+
+    <h4>GET /api/production-prediction</h4>
+    Parameters:
+    <ul>
+        <li>zone</li>
+        <li>start</li>
+        <li>end</li>
+        <li>aggregate</li>
+    </ul>
+
+    <h4>POST /api/energy-mix-series</h4>
+    <strong>Input:</strong>
+    <pre>
+    { 
+        "zone": "AT",
+        "start": "202408192200",
+        "end": "202408192300",
+        "unit": "kWh", 
+        "resolution": "PT15M",
+        "consumption": [0.441, 0.444, 0.104, 0.088] 
+    }
+    </pre>
+
+    <h4>POST /api/emission-series</h4>
+    <strong>Input:</strong>
+    <pre>
+    { 
+        "zone": "AT",
+        "start": "202408192200",
+        "end": "202408192300",
+        "unit": "kWh", 
+        "resolution": "PT15M",
+        "consumption": [0.441, 0.444, 0.104, 0.088] 
+    }
+    </pre>
+
+    <h4>Parameter Description</h4>
+    <ul>
+    <li>zone, one of:</li>
+        <ul>
+            <li>EU, AT, DE, FR, BE, DK, UK, HU, TR, IS, SE, NO, PL, IT, ES</li>
+            <li>or the domain string according to ENTSOE schema</li>
+        </ul> 
+    <br>
+    <li>start</li>
+        <ul><li>12 digit timedate information, e.g.: 202408102300</li></ul>
+    <br>
+     <li>end</li>
+    <ul><li>12 digit timedate information, e.g.: 202408110800</li></ul>
+    <br>
+    <li>aggregate, one of:</li>
+        <ul>
+        <li>Quantity</li>
+        <li>Proportion</li>
+        <li>Emission</li>
+        <li>QuantitySeries</li>
+        <li>ProportionSeries</li>
+        <li>EmissionSeries</li>
+        </ul>
+    </ul>
+    <br>
+</body>
+

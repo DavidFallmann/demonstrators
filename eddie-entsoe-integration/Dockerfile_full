@@ -1,0 +1,9 @@
+FROM rust:1.80
+
+WORKDIR /usr/src/eprofiler
+COPY . .
+
+
+RUN cargo install --path .
+
+CMD ["eprofiler"]

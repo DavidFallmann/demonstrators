@@ -1,0 +1,13 @@
+.env
+.venv/
+
+old_demonstrator_logic/
+eddie-entsoe-integration/
+predict/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IntelliJ
+.idea/

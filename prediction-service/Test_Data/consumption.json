@@ -1,0 +1,8 @@
+{
+    "zone": "AT",
+    "start": "202407231200",
+    "end":   "202407231300",
+    "unit": "kWh",
+    "resolution": "PT15M",
+    "consumption": [1,2,3,4]
+}

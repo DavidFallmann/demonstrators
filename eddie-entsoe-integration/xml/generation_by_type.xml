@@ -1,0 +1,884 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration_MarketDocument xmlns="urn:iec62325.351:tc57wg16:451-6:configurationdocument:3:0">
+    <mRID>bc667b87d3494ba591cee2aafab352c6</mRID>
+    <type>A95</type>
+    <process.processType>A39</process.processType>
+    <sender_MarketParticipant.mRID codingScheme="A01">10X1001A1001A450</sender_MarketParticipant.mRID>
+    <sender_MarketParticipant.marketRole.type>A32</sender_MarketParticipant.marketRole.type>
+    <receiver_MarketParticipant.mRID codingScheme="A01">10X1001A1001A450</receiver_MarketParticipant.mRID>
+    <receiver_MarketParticipant.marketRole.type>A32</receiver_MarketParticipant.marketRole.type>
+    <createdDateTime>2024-09-02T06:39:18Z</createdDateTime>
+    <TimeSeries>
+        <mRID>e500638a86634dc2</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-10-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WSAINT-000221B</registeredResource.mRID>
+        <registeredResource.name>SAINT-GHISLAIN STEG</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B04</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">150</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">350</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WSAINT-150221B</mRID>
+                <name>SAINT-GHISLAIN STEG</name>
+                <nominalP unit="MAW">350</nominalP>
+                <generatingUnit_PSRType.psrType>B04</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>b0cf081db7e54169</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2016-07-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WDOELX40000793</registeredResource.mRID>
+        <registeredResource.name>DOEL 4</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B14</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">380</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">1039</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WDOELX41500793</mRID>
+                <name>DOEL 4</name>
+                <nominalP unit="MAW">1039</nominalP>
+                <generatingUnit_PSRType.psrType>B14</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>538c6c1f15ab4776</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WCOOXII000070C</registeredResource.mRID>
+        <registeredResource.name>COO II T</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B10</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">380</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">690</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WCOOX5X000061A</mRID>
+                <name>COO 5 T</name>
+                <nominalP unit="MAW">230</nominalP>
+                <generatingUnit_PSRType.psrType>B10</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WCOOX6X000064W</mRID>
+                <name>COO 6 T</name>
+                <nominalP unit="MAW">230</nominalP>
+                <generatingUnit_PSRType.psrType>B10</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WCOOX4X0000588</mRID>
+                <name>COO 4 T</name>
+                <nominalP unit="MAW">230</nominalP>
+                <generatingUnit_PSRType.psrType>B10</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>46ad22e0b17b46e4</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WDROGEN0000863</registeredResource.mRID>
+        <registeredResource.name>DROGENBOS TGV</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B04</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">150</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">465</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WDROGEN0000855</mRID>
+                <name>DROGENBOS ST</name>
+                <nominalP unit="MAW">165</nominalP>
+                <generatingUnit_PSRType.psrType>B04</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WDROGEN0000847</mRID>
+                <name>DROGENBOS GT2</name>
+                <nominalP unit="MAW">100</nominalP>
+                <generatingUnit_PSRType.psrType>B04</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WDROGEN0000839</mRID>
+                <name>DROGENBOS GT1</name>
+                <nominalP unit="MAW">100</nominalP>
+                <generatingUnit_PSRType.psrType>B04</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>47f1390108154fc6</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WINESCO000149P</registeredResource.mRID>
+        <registeredResource.name>INESCO WKK</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">11XEEX--MIA----J</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B04</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">150</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">133</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WINESCO150149P</mRID>
+                <name>INESCO WKK</name>
+                <nominalP unit="MAW">133</nominalP>
+                <generatingUnit_PSRType.psrType>B04</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>00ff32af8d5f41ac</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WMARCIN000179H</registeredResource.mRID>
+        <registeredResource.name>Marcinelle Energie (Carsid)</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B04</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">150</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">405</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WMARCIN150179H</mRID>
+                <name>Marcinelle Energie (Carsid)</name>
+                <nominalP unit="MAW">405</nominalP>
+                <generatingUnit_PSRType.psrType>B04</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>ee4b92d318cb45bb</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WSCHELD0002261</registeredResource.mRID>
+        <registeredResource.name>Scheldelaan Exxonmobil</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B04</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">150</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">140</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WSCHELD1502261</mRID>
+                <name>Scheldelaan Exxonmobil</name>
+                <nominalP unit="MAW">140</nominalP>
+                <generatingUnit_PSRType.psrType>B04</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>2db3b402fb5d4d67</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WTHORNT000237E</registeredResource.mRID>
+        <registeredResource.name>Thorntonbank - C-Power - Area NE</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B18</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">150</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">147.6</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WTHORNT150237E</mRID>
+                <name>Thorntonbank - C-Power - Area NE</name>
+                <nominalP unit="MAW">147.6</nominalP>
+                <generatingUnit_PSRType.psrType>B18</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>09488aa79e9e49a6</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WDOELX3000078D</registeredResource.mRID>
+        <registeredResource.name>DOEL 3</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B14</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">380</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">1006</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WDOELX3150078D</mRID>
+                <name>DOEL 3</name>
+                <nominalP unit="MAW">1006</nominalP>
+                <generatingUnit_PSRType.psrType>B14</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>13c082a04f6b4bd3</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WTHORNT000238C</registeredResource.mRID>
+        <registeredResource.name>Thorntonbank - C-Power - Area SW</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B18</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">150</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">177.6</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WTHORNT150238C</mRID>
+                <name>Thorntonbank - C-Power - Area SW</name>
+                <nominalP unit="MAW">177.6</nominalP>
+                <generatingUnit_PSRType.psrType>B18</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>dae8e2f5aa9f4f61</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WT-POWE000244W</registeredResource.mRID>
+        <registeredResource.name>T-power Beringen</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">11XEEX--MIA----J</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B04</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">150</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">419.8</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WT-POWE150244W</mRID>
+                <name>T-power Beringen</name>
+                <nominalP unit="MAW">419.8</nominalP>
+                <generatingUnit_PSRType.psrType>B04</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>cf08f5cdd9a4403c</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WCOOXIX000067T</registeredResource.mRID>
+        <registeredResource.name>COO I T</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B10</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">380</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">474</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WCOOX1X0000481</mRID>
+                <name>COO 1 T</name>
+                <nominalP unit="MAW">158</nominalP>
+                <generatingUnit_PSRType.psrType>B10</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WCOOX3X000055N</mRID>
+                <name>COO 3 T</name>
+                <nominalP unit="MAW">158</nominalP>
+                <generatingUnit_PSRType.psrType>B10</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WCOOX2X0000521</mRID>
+                <name>COO 2 T</name>
+                <nominalP unit="MAW">158</nominalP>
+                <generatingUnit_PSRType.psrType>B10</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>94910f6e9c204799</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WDOELX1000076X</registeredResource.mRID>
+        <registeredResource.name>DOEL 1</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B14</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">380</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">433</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WDOELX1150076X</mRID>
+                <name>DOEL 1</name>
+                <nominalP unit="MAW">433</nominalP>
+                <generatingUnit_PSRType.psrType>B14</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>98423c42558d436e</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WRODENH000213L</registeredResource.mRID>
+        <registeredResource.name>RODENHUIZE 4</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B01</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">150</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">268</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WRODENH150213L</mRID>
+                <name>RODENHUIZE 4</name>
+                <nominalP unit="MAW">268</nominalP>
+                <generatingUnit_PSRType.psrType>B01</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>83033b75ffe34042</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2017-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22W20161130----Z</registeredResource.mRID>
+        <registeredResource.name>Nobelwind Offshore Windpark</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B18</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">220</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">165</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22W20161115----Z</mRID>
+                <name>Nobelwind Offshore Windpark</name>
+                <nominalP unit="MAW">165</nominalP>
+                <generatingUnit_PSRType.psrType>B18</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>f0123b4f33c44981</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WBELWIN0000271</registeredResource.mRID>
+        <registeredResource.name>Belwind Phase 1</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B18</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">150</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">171</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WBELWIN1500271</mRID>
+                <name>Belwind Phase 1</name>
+                <nominalP unit="MAW">171</nominalP>
+                <generatingUnit_PSRType.psrType>B18</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>c0dd207b7a3141db</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2017-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WHERDER0001288</registeredResource.mRID>
+        <registeredResource.name>HERDERSBRUG STEG</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B04</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">150</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">465</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WHERDER000125E</mRID>
+                <name>HERDERSBRUG GT1</name>
+                <nominalP unit="MAW">150</nominalP>
+                <generatingUnit_PSRType.psrType>B04</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WHERDER000126C</mRID>
+                <name>HERDERSBRUG GT2</name>
+                <nominalP unit="MAW">150</nominalP>
+                <generatingUnit_PSRType.psrType>B04</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WHERDER000127A</mRID>
+                <name>HERDERSBRUG ST</name>
+                <nominalP unit="MAW">167</nominalP>
+                <generatingUnit_PSRType.psrType>B04</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>6a03ad2dba844d0c</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2016-12-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WRINGVA000209C</registeredResource.mRID>
+        <registeredResource.name>RINGVAART STEG</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B04</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">150</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">365</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WRINGVA150209C</mRID>
+                <name>RINGVAART STEG</name>
+                <nominalP unit="MAW">365</nominalP>
+                <generatingUnit_PSRType.psrType>B04</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>7ceff733d1aa4b9f</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WDOELX2000077N</registeredResource.mRID>
+        <registeredResource.name>DOEL 2</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B14</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">380</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">433</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WDOELX2150077N</mRID>
+                <name>DOEL 2</name>
+                <nominalP unit="MAW">433</nominalP>
+                <generatingUnit_PSRType.psrType>B14</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>a61a5709ad1e4e71</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WZELZAT0002618</registeredResource.mRID>
+        <registeredResource.name>Zelzate 2 Knippegroen</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B04</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">150</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">315</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WZELZAT1502618</mRID>
+                <name>Zelzate 2 Knippegroen</name>
+                <nominalP unit="MAW">315</nominalP>
+                <generatingUnit_PSRType.psrType>B04</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>324151cfa3d24954</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2016-07-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WZANDVL000255D</registeredResource.mRID>
+        <registeredResource.name>Zandvliet Power</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B04</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">150</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">386.2</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WZANDVL150255D</mRID>
+                <name>Zandvliet Power</name>
+                <nominalP unit="MAW">386.2</nominalP>
+                <generatingUnit_PSRType.psrType>B04</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>065736a0d4864c46</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WTIHANG000239G</registeredResource.mRID>
+        <registeredResource.name>TIHANGE 1N</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B14</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">380</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">481</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WTIHANG150239G</mRID>
+                <name>TIHANGE 1N</name>
+                <nominalP unit="MAW">481</nominalP>
+                <generatingUnit_PSRType.psrType>B14</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>955f85dc2f6f4efd</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2017-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WTIHANG000242R</registeredResource.mRID>
+        <registeredResource.name>TIHANGE 3</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B14</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">380</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">1038</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WTIHANG150242R</mRID>
+                <name>TIHANGE 3</name>
+                <nominalP unit="MAW">1038</nominalP>
+                <generatingUnit_PSRType.psrType>B14</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>bf1aad1ece194f80</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WTIHANG000241T</registeredResource.mRID>
+        <registeredResource.name>TIHANGE 2</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B14</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">380</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">1008</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WTIHANG150241T</mRID>
+                <name>TIHANGE 2</name>
+                <nominalP unit="MAW">1008</nominalP>
+                <generatingUnit_PSRType.psrType>B14</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>00956d75d5db4c27</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WTIHANG000240V</registeredResource.mRID>
+        <registeredResource.name>TIHANGE 1S</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B14</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">380</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">481</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WTIHANG150240V</mRID>
+                <name>TIHANGE 1S</name>
+                <nominalP unit="MAW">481</nominalP>
+                <generatingUnit_PSRType.psrType>B14</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>2b8dd52d327b412b</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2017-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WLANGER0001694</registeredResource.mRID>
+        <registeredResource.name>LANGERLO 1</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B05</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">150</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">235</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WLANGER1501694</mRID>
+                <name>LANGERLO 1</name>
+                <nominalP unit="MAW">235</nominalP>
+                <generatingUnit_PSRType.psrType>B05</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>7e6aa881a25946a9</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WNORTHW000187B</registeredResource.mRID>
+        <registeredResource.name>Northwind</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B18</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">220</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">216</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WNORTHW150187B</mRID>
+                <name>Northwind</name>
+                <nominalP unit="MAW">216</nominalP>
+                <generatingUnit_PSRType.psrType>B18</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>d242f7050a194aae</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WAMERCO000010Y</registeredResource.mRID>
+        <registeredResource.name>Amercoeur 1 R TGV</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B04</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">150</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">451</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WAMERCO000008L</mRID>
+                <name>Amercoeur 1 R GT</name>
+                <nominalP unit="MAW">289</nominalP>
+                <generatingUnit_PSRType.psrType>B04</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WAMERCO000009J</mRID>
+                <name>Amercoeur 1 R ST</name>
+                <nominalP unit="MAW">162</nominalP>
+                <generatingUnit_PSRType.psrType>B04</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>6e344fc4f8d84151</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2014-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WPLATEX000208N</registeredResource.mRID>
+        <registeredResource.name>PLATE TAILLE T</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B10</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">150</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">144</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WPLATEX150208N</mRID>
+                <name>PLATE-TAILLE T</name>
+                <nominalP unit="MAW">144</nominalP>
+                <generatingUnit_PSRType.psrType>B10</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+    <TimeSeries>
+        <mRID>1671f3b0e6154579</mRID>
+        <businessType>B11</businessType>
+        <implementation_DateAndOrTime.date>2017-01-01</implementation_DateAndOrTime.date>
+        <biddingZone_Domain.mRID codingScheme="A01">10YBE----------2</biddingZone_Domain.mRID>
+        <registeredResource.mRID codingScheme="A01">22WLANGER000171H</registeredResource.mRID>
+        <registeredResource.name>LANGERLO 2</registeredResource.name>
+        <registeredResource.location.name>Belgium</registeredResource.location.name>
+        <ControlArea_Domain>
+            <mRID codingScheme="A01">10YBE----------2</mRID>
+        </ControlArea_Domain>
+        <Provider_MarketParticipant>
+            <mRID codingScheme="A01">10X1001A1001A094</mRID>
+        </Provider_MarketParticipant>
+        <MktPSRType>
+            <psrType>B05</psrType>
+            <production_PowerSystemResources.highVoltageLimit unit="KVT">150</production_PowerSystemResources.highVoltageLimit>
+            <nominalIP_PowerSystemResources.nominalP unit="MAW">235</nominalIP_PowerSystemResources.nominalP>
+            <GeneratingUnit_PowerSystemResources>
+                <mRID codingScheme="A01">22WLANGER150171H</mRID>
+                <name>LANGERLO 2</name>
+                <nominalP unit="MAW">235</nominalP>
+                <generatingUnit_PSRType.psrType>B05</generatingUnit_PSRType.psrType>
+                <generatingUnit_Location.name>Belgium</generatingUnit_Location.name>
+            </GeneratingUnit_PowerSystemResources>
+        </MktPSRType>
+    </TimeSeries>
+</Configuration_MarketDocument>

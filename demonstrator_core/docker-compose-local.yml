@@ -1,0 +1,131 @@
+services:
+  web_app:
+    container_name: web_app
+    build:
+      context: .
+    command: ["/app/entrypoint_web_app.sh"]
+    restart: always    
+    depends_on:
+      - timescale
+    env_file: .env
+    environment:
+      - DJANGO_SETTINGS_MODULE=web_app.core.settings
+      - TIMESCALEDB_HOST=timescale
+    networks:
+      - db_network
+      - web_network
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./web_app:/app/web_app
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    tty: true
+    stdin_open: true
+
+  consumer:
+    container_name: consumer
+    build:
+      context: .
+    command: ["/app/entrypoint_consumer.sh"] 
+    restart: always  
+    depends_on:
+      - timescale
+    env_file: .env
+    environment:
+      - DJANGO_SETTINGS_MODULE=consumer.settings
+      - TIMESCALEDB_HOST=timescale
+    networks:
+      - db_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  timescale:
+    image: timescale/timescaledb:latest-pg16
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - timescaledb_data:/var/lib/postgresql/data/
+    env_file:
+      - .env
+    networks:
+      - db_network
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    ports:
+      - "5051:80"
+    depends_on:
+      - timescale
+    networks:
+      - db_network
+  
+  portainer:
+      image: portainer/portainer:latest
+      container_name: portainer
+      restart: always
+      ports:
+        - "9000:9000"
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - portainer_data:/data
+      networks:
+      - db_network
+
+  mqtt_service:
+    container_name: mqtt_service
+    build:
+      context: .
+      dockerfile: mqtt_service/Dockerfile
+    command: [ "/app/entrypoint_mqtt.sh" ]
+    restart: always
+    depends_on:
+      - timescale
+    env_file: .env
+    environment:
+      - TIMESCALEDB_HOST=timescale
+    networks:
+      - db_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  prediction_service:
+    container_name: prediction_service
+    build: ../prediction-service
+    restart: always
+    depends_on:
+      - timescale
+    networks:
+      - web_network
+    ports:
+      - "5001:5001"
+
+  eddie_entsoe_integration:
+    container_name: eddie_entsoe_integration
+    build: ../eddie-entsoe-integration
+    restart: always
+    depends_on:
+      - timescale
+    networks:
+      - web_network
+    ports:
+      - "8000:8000"
+
+networks:
+  db_network:
+    driver: bridge
+  web_network:
+    external: false
+
+volumes:
+  timescaledb_data:
+  portainer_data:

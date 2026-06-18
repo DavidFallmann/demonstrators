@@ -1,0 +1,6 @@
+@reboot TIMESCALEDB_HOST=timescale /usr/local/bin/python3 /app/manage.py activate_awattar_api >> /var/log/cron.log 2>&1
+0 * * * * TIMESCALEDB_HOST=timescale /usr/local/bin/python3 /app/manage.py activate_awattar_api >> /var/log/cron.log 2>&1
+
+
+# Temporary cron job to run every minute for testing
+#* * * * * /bin/echo "Cron job executed at $(date)" >> /var/log/cron.log 2>&1

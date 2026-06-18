@@ -1,0 +1,38 @@
+{
+  "MessageDocumentHeader": {
+    "creationDateTime": "2026-03-04T23:45:04Z",
+    "MessageDocumentHeader_MetaInformation": {
+      "connectionid": "33d6fdc2-e615-454b-a746-c4bfc891077f",
+      "permissionid": "6841f96e-d7a6-483f-9f99-bd4604c3c8a2",
+      "dataNeedid": "ca51cc60-ebcb-4bf7-a3e5-cec14025cfa5",
+      "dataType": "validated-historical-data-market-document",
+      "MessageDocumentHeader_Region": {
+        "connector": "at-eda",
+        "country": "NAT"
+      }
+    }
+  },
+  "ValidatedHistoricalData_MarketDocument": {
+    "mRID": "AT002000202603042251433427695991477",
+    "revisionNumber": "0.82",
+    "type": "A45",
+    "createdDateTime": "2026-03-04T21:51:43Z",
+    "description": null,
+    "sender_MarketParticipant.mRID": {
+      "codingScheme": "NAT",
+      "value": "AT002000"
+    },
+    "sender_MarketParticipant.marketRole.type": "A26",
+    "receiver_MarketParticipant.mRID": {
+      "codingScheme": "NAT",
+      "value": "EP100371"
+    },
+    "receiver_MarketParticipant.marketRole.type": "A13",
+    "process.processType": "A16",
+    "period.timeInterval": {
+      "start": null,
+      "end": "2026-03-03T23:00Z"
+    },
+    "TimeSeriesList": null
+  }
+}

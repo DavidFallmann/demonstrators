@@ -1,0 +1,18 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "start_timestamp": 1722517200000,
+      "end_timestamp": 1722520800000,
+      "marketprice": 71.22,
+      "unit": "Eur/MWh"
+    },
+    {
+      "start_timestamp": 1722520800000,
+      "end_timestamp": 1722524400000,
+      "marketprice": 77.39,
+      "unit": "Eur/MWh"
+    }
+  ],
+  "url": "/de/v1/marketdata"
+}

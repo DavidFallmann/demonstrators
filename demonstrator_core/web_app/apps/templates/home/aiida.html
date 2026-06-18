@@ -1,0 +1,846 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %}AiiDA Live Stream{% endblock %}
+
+{% block content %}
+
+<style>
+  .aiida-wrap { padding: 2rem 0 3rem; }
+
+  .perm-card {
+    border-radius: 14px;
+    background: #1e293b;
+    border: 1px solid rgba(255,255,255,.07);
+    box-shadow: 0 2px 16px rgba(0,0,0,.18);
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+    transition: box-shadow .2s;
+  }
+  .perm-card:hover { box-shadow: 0 4px 28px rgba(0,0,0,.28); }
+
+  .perm-card-head {
+    background: rgba(255,255,255,.025);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .perm-chip {
+    font-family: 'Courier New', monospace;
+    font-size: .73rem;
+    background: rgba(255,255,255,.06);
+    color: #94a3b8;
+    padding: .15rem .55rem;
+    border-radius: 6px;
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+  }
+
+  .live-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .05em;
+    padding: .15rem .55rem;
+    border-radius: 999px;
+    background: rgba(16,185,129,.12);
+    color: #34d399;
+    border: 1px solid rgba(16,185,129,.3);
+  }
+  .live-pill::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 6px #34d399;
+    animation: lp-pulse 1.4s ease-in-out infinite;
+  }
+  @keyframes lp-pulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50% { opacity:.25; transform:scale(.55); }
+  }
+
+  .btn-aiida {
+    font-size: .75rem;
+    padding: .28rem .75rem;
+    border-radius: 7px;
+    border: 1px solid;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+  .btn-aiida-live {
+    border-color: rgba(59,130,246,.5);
+    color: #60a5fa;
+    background: rgba(59,130,246,.08);
+  }
+  .btn-aiida-live:hover { background: rgba(59,130,246,.18); }
+
+  .btn-aiida-stop {
+    border-color: rgba(251,191,36,.45);
+    color: #fbbf24;
+    background: rgba(251,191,36,.07);
+  }
+  .btn-aiida-stop:hover { background: rgba(251,191,36,.18); }
+
+  .btn-aiida-del {
+    border-color: rgba(239,68,68,.35);
+    color: #f87171;
+    background: transparent;
+  }
+  .btn-aiida-del:hover { background: rgba(239,68,68,.12); }
+
+  .chart-body { padding: 14px 16px 10px; }
+
+  .meas-block {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 14px 16px 12px;
+    box-shadow: 0 1px 6px rgba(0,0,0,.1);
+  }
+  .meas-block + .meas-block { margin-top: 14px; }
+
+  .meas-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .meas-title {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: .82rem;
+    font-weight: 700;
+    color: #1e293b;
+  }
+  .meas-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .meas-unit {
+    font-size: .75rem;
+    font-weight: 400;
+    color: #64748b;
+  }
+
+  .meas-stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .stat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .stat-lbl {
+    font-size: .6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: #94a3b8;
+    margin-bottom: 1px;
+  }
+  .stat-num {
+    font-size: .9rem;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+  .stat-num.is-current { font-size: 1.05rem; }
+
+  .chart-wrap {
+    position: relative;
+    height: 210px;
+  }
+
+  .card-footer-strip {
+    padding: 6px 16px 8px;
+    border-top: 1px solid rgba(255,255,255,.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .stream-status { font-size: .72rem; }
+  .stream-ts {
+    font-size: .7rem;
+    color: #64748b;
+  }
+
+  @keyframes data-flash {
+    0% { box-shadow: 0 0 0 0 rgba(59,130,246,.45); }
+    65% { box-shadow: 0 0 0 7px rgba(59,130,246,0); }
+    100% { box-shadow: 0 1px 6px rgba(0,0,0,.1); }
+  }
+  .meas-block.flash { animation: data-flash .55s ease-out; }
+
+  .aiida-empty {
+    text-align: center;
+    padding: 3.5rem 1rem;
+    color: #64748b;
+  }
+  .aiida-empty .ico {
+    font-size: 2.5rem;
+    margin-bottom: .6rem;
+  }
+</style>
+
+<div class="content aiida-wrap">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 mx-auto">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h3 class="fw-bold mb-0">AiiDA Live Stream</h3>
+            <p class="text-muted small mb-0 mt-1">Real-time energy measurements · line chart per data type</p>
+          </div>
+          <button id="btnToggleSetup" class="btn btn-outline-primary btn-sm px-3">
+            {% if show_setup %}Hide setup{% else %}Add permission{% endif %}
+          </button>
+        </div>
+
+        <div id="setupPanel" class="card mb-4" {% if not show_setup %}style="display:none"{% endif %}>
+          <div class="card-header card-header-primary">
+            <h5 class="card-title mb-0">Connection setup</h5>
+          </div>
+          <div class="card-body">
+            <ol class="ps-3 mb-3">
+              <li class="mb-2">
+                Open <strong>AiiDA</strong> and create a new permission of type
+                <code>outbound-aiida</code>.<br>
+                <a href="http://localhost:8080" target="_blank" rel="noopener"
+                   class="btn btn-sm btn-secondary mt-1">Open AiiDA</a>
+                <span class="text-muted small ms-2">user: <code>aiida</code> / pw: <code>aiida</code></span>
+              </li>
+              <li class="mb-2">
+                Select the data type and generate your EDDIE code:
+                <div class="mt-2">
+                  <select class="form-select form-select-sm w-auto d-inline-block" id="needSelect">
+                    <option value="a42d21be-0b81-4189-9115-46fc5a5c2896" selected>Outbound AiiDA</option>
+                  </select>
+                </div>
+                <div class="mt-2 d-flex justify-content-center">
+                  <eddie-connect-button id="eddieBtn"
+                                        data-need-id="a42d21be-0b81-4189-9115-46fc5a5c2896"
+                                        connection-id="1">
+                  </eddie-connect-button>
+                </div>
+              </li>
+              <li>
+                Paste the code into AiiDA, copy the <strong>Permission ID</strong>
+                and enter it here:
+                <div class="input-group mt-2">
+                  <input type="text" id="permInput" class="form-control form-control-sm"
+                         placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
+                  <button id="btnVerify" class="btn btn-primary btn-sm">Verify &amp; Start</button>
+                </div>
+                <div id="verifyMsg" class="mt-2"></div>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div id="cardsArea">
+          {% if my_permissions %}
+          {% for perm in my_permissions %}
+          <div class="perm-card" data-pid="{{ perm.permission_id }}">
+            <div class="perm-card-head">
+              <div class="d-flex align-items-center gap-2 flex-wrap">
+                  <span class="perm-chip" title="{{ perm.permission_id }}">
+                    {{ perm.permission_id }}
+                  </span>
+                {% if perm.verified %}
+                <span class="badge bg-success" style="font-size:.66rem;">✓ verified</span>
+                {% else %}
+                <span class="badge bg-secondary" style="font-size:.66rem;">unverified</span>
+                {% endif %}
+                <span class="live-pill" style="display:none;">LIVE</span>
+              </div>
+              <div class="d-flex gap-2 align-items-center">
+                <button class="btn-aiida btn-aiida-live btn-show-live">▶ Show Live</button>
+                <button class="btn-aiida btn-aiida-stop btn-do-stop" style="display:none;">⏹ Stop</button>
+                <button class="btn-aiida btn-aiida-del btn-do-remove">✕ Remove</button>
+              </div>
+            </div>
+            <div class="chart-body" style="display:none;">
+              <div class="meas-container"></div>
+            </div>
+            <div class="card-footer-strip" style="display:none;">
+              <span class="stream-status"></span>
+              <span class="stream-ts"></span>
+            </div>
+          </div>
+          {% endfor %}
+          {% else %}
+          {% if not show_setup %}
+          <div id="emptyHint" class="aiida-empty">
+            <div class="ico">📡</div>
+            <p class="fw-semibold mb-1">No permissions yet</p>
+            <p class="small text-muted">
+              Click <strong>"Add permission"</strong> above to get started.
+            </p>
+          </div>
+          {% endif %}
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3"></script>
+
+<script type="module"
+        src="https://eddie-demo.projekte.fh-hagenberg.at/univie/eddie/lib/eddie-components.js">
+</script>
+
+<script type="module">
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('eddieBtn');
+    const sel = document.getElementById('needSelect');
+
+    const rnd = () => 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+      const r = Math.random() * 16 | 0;
+      return (c === 'x' ? r : (r & 3 | 8)).toString(16);
+    });
+
+    if (btn) btn.setAttribute('connection-id', rnd());
+
+    sel?.addEventListener('change', () => {
+      btn?.setAttribute('data-need-id', sel.value);
+      btn?.setAttribute('connection-id', rnd());
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+
+    const MAX_POINTS = 60;
+
+    const OBIS = {
+      '1-0:1.7.0': 'Active Power Import',
+      '1-0:1.8.0': 'Active Energy Import',
+      '1-0:2.7.0': 'Active Power Export',
+      '1-0:2.8.0': 'Active Energy Export',
+      '1-0:3.8.0': 'Reactive Energy Import',
+      '1-0:4.8.0': 'Reactive Energy Export',
+    };
+
+    const ACCENTS = [
+      '#3b82f6',
+      '#10b981',
+      '#f59e0b',
+      '#ef4444',
+      '#8b5cf6',
+      '#06b6d4',
+    ];
+
+    const pollers = new Map();
+    const charts = new Map();
+
+    const isUuid = s =>
+            /^[0-9a-f]{8}-[0-9a-f]{4}-[1-7][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(s);
+
+    function fmtTime(ts) {
+      return new Date(ts).toLocaleTimeString('en-GB', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+    }
+
+    function fmtVal(v, unit) {
+      if (v == null) return '—';
+      const s = v.toLocaleString('en-US', { maximumFractionDigits: 3 });
+      return unit ? s + '\u202f' + unit : s;
+    }
+
+    function setStatus(card, text, color) {
+      const el = card.querySelector('.stream-status');
+      if (!el) return;
+      el.textContent = text;
+      el.style.color = color || '#94a3b8';
+    }
+
+    function setFooterTs(card, ts) {
+      const el = card.querySelector('.stream-ts');
+      if (el && ts) el.textContent = 'Last sync: ' + fmtTime(ts);
+    }
+
+    const pluginWhiteBg = {
+      id: 'whiteBg',
+      beforeDraw(chart) {
+        const ctx = chart.canvas.getContext('2d');
+        ctx.save();
+        ctx.globalCompositeOperation = 'destination-over';
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, chart.width, chart.height);
+        ctx.restore();
+      }
+    };
+
+    function buildChart(canvas, unit, accentHex) {
+      return new Chart(canvas, {
+        type: 'line',
+        plugins: [pluginWhiteBg],
+        data: {
+          labels: [],
+          datasets: [{
+            label: unit || '',          // shown in legend, e.g. "kW" or "kWh"
+            data: [],
+            borderColor: accentHex,
+            backgroundColor: accentHex + '22',
+            borderWidth: 2,
+            pointRadius: 2.5,
+            pointHoverRadius: 4,
+            pointBackgroundColor: accentHex,
+            pointBorderColor: accentHex,
+            tension: 0.35,
+            fill: true,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          animation: { duration: 280 },
+          interaction: { mode: 'index', intersect: false },
+          scales: {
+            x: {
+              grid: { display: false },
+              border: { display: false },
+              ticks: {
+                color: '#64748b',
+                font: { size: 10 },
+                maxTicksLimit: 8,
+                maxRotation: 0,
+              },
+              title: {
+                display: true,
+                text: 'Time',
+                color: '#94a3b8',
+                font: { size: 10 },
+                padding: { top: 4 },
+              },
+            },
+            y: {
+              beginAtZero: false,
+              border: { display: false },
+              grid: { color: 'rgba(0,0,0,0.06)', drawTicks: false },
+              ticks: {
+                color: '#64748b',
+                font: { size: 10 },
+                padding: 6,
+              },
+              title: {
+                display: !!unit,
+                text: unit || '',
+                color: '#94a3b8',
+                font: { size: 10 },
+                padding: { bottom: 4 },
+              },
+            }
+          },
+          plugins: {
+            legend: {
+              display: !!unit,   // show only when there's a unit to display
+              position: 'top',
+              align: 'end',
+              labels: {
+                color: '#374151',
+                font: { size: 11, weight: '600' },
+                boxWidth: 12,
+                boxHeight: 12,
+                padding: 8,
+                usePointStyle: true,
+                pointStyle: 'circle',
+              },
+            },
+            tooltip: {
+              backgroundColor: '#0f172a',
+              titleColor: '#e2e8f0',
+              bodyColor: '#94a3b8',
+              borderColor: 'rgba(255,255,255,0.1)',
+              borderWidth: 1,
+              padding: 10,
+              displayColors: false,
+              callbacks: {
+                title: items => items[0]?.label || '',
+                label: ctx => fmtVal(ctx.parsed.y, unit),
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function getOrCreateBlock(pid, tag, unit, card) {
+      if (!charts.has(pid)) charts.set(pid, new Map());
+
+      const tagMap = charts.get(pid);
+      if (tagMap.has(tag)) return tagMap.get(tag);
+
+      const accentHex = ACCENTS[tagMap.size % ACCENTS.length];
+      const tagLabel = OBIS[tag] || tag;
+
+      const block = document.createElement('div');
+      block.className = 'meas-block';
+      block.dataset.tag = tag;
+      block.innerHTML = `
+      <div class="meas-head">
+        <div class="meas-title">
+          <span class="meas-dot" style="background:${accentHex}"></span>
+          <span>${tagLabel}</span>
+          ${unit ? `<span class="meas-unit">(${unit})</span>` : ''}
+        </div>
+        <div class="meas-stats">
+          <div class="stat-box">
+            <span class="stat-lbl">Current</span>
+            <span class="stat-num is-current" style="color:${accentHex}">—</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-lbl">Min</span>
+            <span class="stat-num" style="color:#64748b">—</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-lbl">Avg</span>
+            <span class="stat-num" style="color:#64748b">—</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-lbl">Max</span>
+            <span class="stat-num" style="color:#64748b">—</span>
+          </div>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <canvas></canvas>
+      </div>`;
+
+      card.querySelector('.meas-container').appendChild(block);
+
+      const canvas = block.querySelector('canvas');
+      const chart = buildChart(canvas, unit, accentHex);
+
+      const statEls = block.querySelectorAll('.stat-num');
+      const entry = {
+        chart,
+        block,
+        accentHex,
+        unit,
+        statCur: statEls[0],
+        statMin: statEls[1],
+        statAvg: statEls[2],
+        statMax: statEls[3],
+        statsObj: {
+          min: null,
+          max: null,
+          last: null,
+          sum: 0,
+          count: 0
+        },
+      };
+
+      tagMap.set(tag, entry);
+      return entry;
+    }
+
+    function cardFor(pid) {
+      return document.querySelector(`.perm-card[data-pid="${pid}"]`);
+    }
+
+    function stopPolling(pid) {
+      if (pollers.has(pid)) {
+        clearInterval(pollers.get(pid));
+        pollers.delete(pid);
+      }
+
+      const card = cardFor(pid);
+      if (!card) return;
+
+      card.querySelector('.live-pill')?.style.setProperty('display', 'none');
+      card.querySelector('.btn-show-live')?.style.removeProperty('display');
+      card.querySelector('.btn-do-stop')?.style.setProperty('display', 'none');
+    }
+
+    function startPolling(pid) {
+      stopPolling(pid);
+
+      const card = cardFor(pid);
+      if (!card) return;
+
+      card.querySelector('.meas-container').innerHTML = '';
+      charts.get(pid)?.forEach(e => e.chart.destroy());
+      charts.delete(pid);
+
+      card.querySelector('.chart-body')?.style.removeProperty('display');
+      card.querySelector('.card-footer-strip')?.style.removeProperty('display');
+
+      card.querySelector('.live-pill')?.style.setProperty('display', 'inline-flex');
+      card.querySelector('.btn-show-live')?.style.setProperty('display', 'none');
+      card.querySelector('.btn-do-stop')?.style.removeProperty('display');
+
+      let lastTs = new Date().toISOString();
+      let busy = false;
+
+      setStatus(card, 'Connecting…', '#60a5fa');
+
+      async function tick() {
+        if (busy) return;
+        busy = true;
+
+        const ctrl = new AbortController();
+        const tid = setTimeout(() => ctrl.abort(), 9000);
+
+        try {
+          const url = new URL('/api/aiida_stream/', location.origin);
+          url.searchParams.set('permission_id', pid);
+          url.searchParams.set('since', lastTs);
+
+          const res = await fetch(url, { signal: ctrl.signal });
+          clearTimeout(tid);
+
+          if (!res.ok) {
+            const msg = res.status === 403 ? 'Access denied (403)' : `Server error (${res.status})`;
+            setStatus(card, msg, '#f87171');
+            return;
+          }
+
+          const json = await res.json();
+          if (json?.status !== 'ok') return;
+
+          const rows = Array.isArray(json.data) ? json.data : [];
+
+          if (rows.length > 0) {
+            const byTag = new Map();
+
+            for (const row of rows) {
+              if (typeof row.value !== 'number') continue;
+
+              const t = row.tag || 'value';
+              if (!byTag.has(t)) byTag.set(t, []);
+              byTag.get(t).push(row);
+            }
+
+            for (const [tag, tagRows] of byTag) {
+              const unit = tagRows[0].unit || '';
+              const entry = getOrCreateBlock(pid, tag, unit, card);
+              const ds = entry.chart.data.datasets[0];
+              const lbs = entry.chart.data.labels;
+              const s = entry.statsObj;
+
+              for (const row of tagRows) {
+                lbs.push(fmtTime(row.ts));
+                ds.data.push(row.value);
+
+                if (lbs.length > MAX_POINTS) {
+                  lbs.shift();
+                  ds.data.shift();
+                }
+
+                s.last = row.value;
+                s.min = s.min === null ? row.value : Math.min(s.min, row.value);
+                s.max = s.max === null ? row.value : Math.max(s.max, row.value);
+                s.sum += row.value;
+                s.count++;
+              }
+
+              entry.chart.update();
+
+              entry.block.classList.remove('flash');
+              void entry.block.offsetWidth;
+              entry.block.classList.add('flash');
+
+              const avg = s.count > 0 ? s.sum / s.count : null;
+
+              entry.statCur.textContent = fmtVal(s.last, unit);
+              entry.statMin.textContent = fmtVal(s.min, unit);
+              entry.statAvg.textContent = fmtVal(avg, unit);
+              entry.statMax.textContent = fmtVal(s.max, unit);
+            }
+
+            const n = rows.length;
+            setStatus(card, `● Live — ${n} new data point${n !== 1 ? 's' : ''}`, '#34d399');
+
+          } else {
+            setStatus(card, '○ Connected — waiting for new data…', '#94a3b8');
+          }
+
+          if (json.last_ts) {
+            lastTs = json.last_ts;
+            setFooterTs(card, lastTs);
+          }
+
+        } catch (e) {
+          clearTimeout(tid);
+
+          if (e.name === 'AbortError') {
+            setStatus(card, 'Request timed out — retrying…', '#fbbf24');
+          } else {
+            setStatus(card, 'Network error', '#f87171');
+          }
+        } finally {
+          busy = false;
+        }
+      }
+
+      tick();
+      pollers.set(pid, setInterval(tick, 5000));
+    }
+
+    function wireCard(card) {
+      const pid = card.dataset.pid;
+
+      card.querySelector('.btn-show-live')?.addEventListener('click', () => startPolling(pid));
+
+      card.querySelector('.btn-do-stop')?.addEventListener('click', () => {
+        stopPolling(pid);
+        setStatus(card, 'Paused — press "Show Live" to restart.', '#94a3b8');
+      });
+
+      card.querySelector('.btn-do-remove')?.addEventListener('click', async () => {
+        if (!confirm(`Remove permission?\n\n${pid}\n\nStored measurements will be kept.`)) return;
+
+        try {
+          await fetch(`/api/delete_permission/?permission_id=${encodeURIComponent(pid)}`);
+        } catch {
+          /* ignore */
+        }
+
+        stopPolling(pid);
+        charts.get(pid)?.forEach(e => e.chart.destroy());
+        charts.delete(pid);
+        card.remove();
+
+        if (!document.querySelector('.perm-card')) {
+          document.getElementById('cardsArea').innerHTML = `
+          <div class="aiida-empty">
+            <div class="ico">📡</div>
+            <p class="fw-semibold mb-1">No permissions</p>
+            <p class="small text-muted">Click "Add permission" to get started.</p>
+          </div>`;
+        }
+      });
+    }
+
+    document.querySelectorAll('.perm-card').forEach(wireCard);
+
+    const setupPanel = document.getElementById('setupPanel');
+    const btnToggle = document.getElementById('btnToggleSetup');
+
+    btnToggle?.addEventListener('click', () => {
+      const visible = setupPanel.style.display !== 'none';
+      setupPanel.style.display = visible ? 'none' : 'block';
+      btnToggle.textContent = visible ? 'Add permission' : 'Hide setup';
+    });
+
+    document.getElementById('btnVerify')?.addEventListener('click', async () => {
+      const input = document.getElementById('permInput');
+      const pid = (input?.value || '').trim();
+      const msgEl = document.getElementById('verifyMsg');
+
+      function showMsg(text, type) {
+        const cls = {
+          success: 'alert-success',
+          error: 'alert-danger',
+          info: 'alert-info',
+          warning: 'alert-warning'
+        }[type] || 'alert-info';
+
+        msgEl.innerHTML = `<div class="alert ${cls} py-1 px-2 small mb-0">${text}</div>`;
+      }
+
+      if (!pid) {
+        showMsg('Please enter a permission ID.', 'warning');
+        return;
+      }
+
+      if (!isUuid(pid)) {
+        showMsg('Invalid UUID format.', 'warning');
+        return;
+      }
+
+      showMsg('Verifying…', 'info');
+
+      try {
+        const r = await fetch(`/api/verify_permission/?permission_id=${encodeURIComponent(pid)}`);
+        const d = await r.json();
+
+        if (!r.ok || d.status !== 'ok') {
+          showMsg(`Error: ${d.error || 'Unknown'}`, 'error');
+          return;
+        }
+
+        showMsg('✓ Verified — starting stream…', 'success');
+
+      } catch {
+        showMsg('Network error.', 'error');
+        return;
+      }
+
+      document.getElementById('emptyHint')?.remove();
+      document.querySelector('.aiida-empty')?.remove();
+
+      let card = cardFor(pid);
+
+      if (!card) {
+        card = document.createElement('div');
+        card.className = 'perm-card';
+        card.dataset.pid = pid;
+        card.innerHTML = `
+        <div class="perm-card-head">
+          <div class="d-flex align-items-center gap-2 flex-wrap">
+            <span class="perm-chip" title="${pid}">${pid}</span>
+            <span class="badge bg-success" style="font-size:.66rem;">✓ verified</span>
+            <span class="live-pill" style="display:none;">LIVE</span>
+          </div>
+          <div class="d-flex gap-2 align-items-center">
+            <button class="btn-aiida btn-aiida-live btn-show-live" style="display:none;">▶ Show Live</button>
+            <button class="btn-aiida btn-aiida-stop btn-do-stop" style="display:none;">⏹ Stop</button>
+            <button class="btn-aiida btn-aiida-del btn-do-remove">✕ Remove</button>
+          </div>
+        </div>
+        <div class="chart-body" style="display:none;">
+          <div class="meas-container"></div>
+        </div>
+        <div class="card-footer-strip" style="display:none;">
+          <span class="stream-status"></span>
+          <span class="stream-ts"></span>
+        </div>`;
+
+        document.getElementById('cardsArea').prepend(card);
+        wireCard(card);
+      }
+
+      startPolling(pid);
+
+      if (setupPanel) setupPanel.style.display = 'none';
+      if (btnToggle) btnToggle.textContent = 'Add permission';
+    });
+
+  });
+</script>
+
+{% endblock content %}

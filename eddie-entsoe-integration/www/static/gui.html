@@ -1,0 +1,93 @@
+<!doctype html>
+
+<head>
+    <title>Energy Production Data Service</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10" 
+        integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+        crossorigin="anonymous"
+    ></script>
+    
+    <style>
+        body { font-family: monospace; }
+        h1 { font-family: Impact; color: DarkOliveGreen; padding-left: 15px; }
+        em { color: DarkGray; }
+        form { padding: 15px; }
+        input:focus {
+            outline: none !important;
+            border-color: DarkOliveGreen;
+            box-shadow: 0 0 10px DarkGray;
+        }
+
+        
+        th { text-align:left; }
+        td { vertical-align:top; word-break:break-word; }
+        .backdrop { background-color: LightGray; padding: 25px; }
+        .results { background-color: white; border-style: solid; border-width: 1px; padding: 25px; }
+    </style>
+</head>
+
+<body>
+    <datalist id="zonelist">
+        <option value="AT">
+        <option value="BE">
+        <option value="DE">
+        <option value="ES">
+        <option value="FR">
+        <option value="HU">
+        <option value="IT">
+        <option value="NO">
+        <option value="PL">
+        <option value="SE">
+        <option value="TR">
+        <option value="UK">
+    </datalist>
+    <h1>Energy Production Data</h1>
+    <form hx-get="/gui/form-input" hx-params="*" hx-indicator="#progress"  hx-target="#aggregated_result">
+        <table>
+            <tr><td>Zone </td><td>:</td><td>
+                <input size="25" maxlength="16" list="zonelist" name="zone"  type="text" value="AT"/>
+            </td></tr>
+            <tr><td>Start</td><td>:</td><td>
+                <input size="25" maxlength="12" name="start" type="text" pattern="[0-9]{12}" title="datetime: yyyymmddhhmm" value="202408211200"/>
+            </td></tr>
+            <tr><td>End  </td><td>:</td><td>
+                <input size="25" maxlength="12" name="end" type="text" pattern="[0-9]{12}" title="datetime: yyyymmddhhmm" value="202408211300"/>
+            </td></tr>
+        </table>
+
+        <select name="service">
+            <option value="history" selected>History</option>
+            <option value="prediction">Prediction</option>
+        </select>
+        -
+        <select name="aggregate">
+            <option value="Quantity">Quantity</option>
+            <option value="Proportion">Proportion</option>
+            <option value="Emission">Emission</option>
+            <option value="QuantitySeries" selected>Quantity TimeSeries</option>
+            <option value="ProportionSeries">Proportion TimeSeries</option>
+            <option value="EmissionSeries">Emission TimeSeries</option>
+        </select>
+        <div hx-trigger="click" hx-get="/gui/clear"> 
+            <br>
+            <input type="submit" value="QUERY" hx-target="#aggregated_result" hx-swap="innerHTML"/>
+        </div>
+        <!--<button hx-get="/gui/clear">CLEAR</button>-->
+        <div id="progress" class="htmx-indicator">
+            <dialog open>
+            <label for="progbar">request in progress</label>
+            <progress id="progbar"></progress>
+            </dialog>
+        </div>
+    </form>
+    <hr/>
+    <div class="backdrop">
+        <div class="results" id="aggregated_result">
+            Profile Data
+        </div>
+    </div>
+
+    <hr />
+    <em>by COSY</em>
+
+</body>

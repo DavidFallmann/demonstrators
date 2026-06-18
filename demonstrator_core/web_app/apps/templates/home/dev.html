@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+{% if error %}
+  <p> ERROR: {{ error }} </p>
+{% endif %}
+
+<div style="display: flex;">
+
+  <!-- Left container for metering points and charts -->
+  <div style="flex: 2; padding: 20px;">
+    <p>
+      USER: {{ user_name }}
+    </p>
+
+    <p>
+      CONNECTION ID: {{ connection_id }}
+    </p>
+
+    <ul style="margin-top: 20px;">
+      {% if metering_points %}
+          {% for p in metering_points %}
+          <li>{{ p.metering_point }}
+              <a href="{% url 'download_consumption_data' %}" class="btn btn-primary" style="margin-left: 10px;">Download Consumption Data</a>
+              <br><br>
+              <div id="energy_graph_{{ forloop.counter0 }}" style="width:100%;height:300px;"></div>
+          </li>
+          {% endfor %}
+      {% else %}
+          <li>No metering points found.</li>
+      {% endif %}
+    </ul>
+  </div>
+
+  
+  <div style="flex: 1; padding: 20px; border-left: 1px solid #ddd;">
+    <h3>AWATTAR</h3>
+    <p>......</p>
+    
+  </div>
+
+</div>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<script>
+    try {
+        var metering_points = JSON.parse('{{ metering_points_json|escapejs }}');
+        var consumption_data = JSON.parse('{{ consumption_data|escapejs }}');
+        var consumption_start_end = JSON.parse('{{ consumption_start_end|escapejs }}');
+        var userProfile = JSON.parse('{{ user_profile|escapejs }}');
+
+        for (var i = 0; i < metering_points.length; ++i) {
+            var curr_mp = metering_points[i];
+            var curr_data = consumption_data[curr_mp.metering_point];
+            var curr_start_end = consumption_start_end[curr_mp.metering_point];
+
+            if (curr_data) {
+                var dates = curr_data.map(item => item.timestamp);
+                var consumptionValues = curr_data.map(item => item.consumption_value);
+
+                var plotlyData = [{
+                    x: dates,
+                    y: consumptionValues,
+                    type: 'bar'  // Change to 'scatter' for line chart
+                }];
+
+                var title = `Consumption from ${curr_start_end.start} to ${curr_start_end.end}`;
+
+                var layout = {
+                    title: title,
+                    xaxis: { title: 'Date' },
+                    yaxis: { title: 'Energy Consumption (kWh)' },
+                    height: 300
+                };
+
+                var chartId = `energy_graph_${i}`;
+                Plotly.newPlot(chartId, plotlyData, layout);
+            }
+        }
+    } catch (error) {
+        console.error('Error parsing data:', error);
+    }
+</script>

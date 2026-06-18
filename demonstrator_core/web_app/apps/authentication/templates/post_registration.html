@@ -1,0 +1,120 @@
+{% extends "layouts/post_registration_base.html" %}
+{% load static %}
+
+{% block title %}Post Registration{% endblock %}
+
+{% block content %}
+<div class="logo position-absolute w-100 text-center" style="top: 30px">
+    <img class="logo-image" src="/static/assets/img/eddie_logo.png" alt="Logo" width="200" onclick="window.location.href='/'" style="cursor: pointer;">
+</div>
+
+<div class="content">
+    <div class="container">
+        <div class="row pt-5">
+            <div class="col-md-6 offset-md-3 mt-5 pt-5">
+                <div class="card text-center">
+
+                    <div class="card-header card-header-primary">
+                        Welcome <span class="text-primary">{{ username }} </span>
+                    </div>
+
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                        <h4 class="card-title">Before we can start:</h4>
+
+                        <p class="card-text text-start px-3">
+                            To provide you with tailored energy insights and services, we first need your <strong><u>consent to access your energy data</u></strong>.
+                            <br><br>
+                            This process is quick and secure. By selecting a time period and clicking the button below, you can connect your energy data with our platform.
+                            You are always in control of your data.
+                        </p>
+
+                        <h5 class="mt-3">1. Select the data period you'd like to share</h5>
+                        <h5>2. Click the button "Connect with EDDIE" below</h5>
+                        <h5>3. Follow the short authorization process</h5>
+                        <h5>4. Done! We’ll take it from there.</h5>
+
+                        <div class="mb-4 mt-3 w-75">
+                            <label for="periodSelect" class="form-label"><strong>Data Period:</strong></label>
+                            <br>
+                            <select class="form-select" id="periodSelect">
+                                <option value="" disabled selected>Select period</option>
+                                <option value="LAST_month">Last Month</option>
+                                <option value="LAST_3_months">Last 3 Months</option>
+                                <option value="LAST_3_months_HOURLY">Last 3 Months hourly</option>
+                                <option value="LAST_Next_3_months">Last and next 3 months</option>
+                                <option value="NEXT_10_DAYS">Next 10 days</option>
+                                <option value="" disabled>Custom Range (Coming soon)</option>
+                            </select>
+                        </div>
+
+                        <div id="connectButtonContainer" class="mt-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="https://eddie-demo.projekte.fh-hagenberg.at/univie/eddie/lib/eddie-components.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const periodSelect = document.getElementById('periodSelect');
+        const connectButtonContainer = document.getElementById('connectButtonContainer');
+
+        const periodToNeedId = {
+            'LAST_month' : '9bf4cefe-bab8-4794-aeb7-de8788729eee',
+            'LAST_3_months': '747e7404-95b3-4031-ab84-9523d2157c37',
+            'LAST_3_months_HOURLY': '2afc2faa-5f66-4e4e-b13e-66c4c4006249',
+            'LAST_Next_3_months': 'ca51cc60-ebcb-4bf7-a3e5-cec14025cfa5',
+            'NEXT_10_DAYS': 'be589a57-2c10-479a-a87b-bc6ee79c39c8',
+        };
+
+        // Dropdown Auswahl
+        periodSelect.addEventListener('change', function () {
+            const selectedPeriod = this.value;
+            const needId = periodToNeedId[selectedPeriod];
+
+            if (!needId) {
+                connectButtonContainer.innerHTML = "<p class='text-danger'>Invalid period selected.</p>";
+                return;
+            }
+
+            connectButtonContainer.innerHTML = `
+                <eddie-connect-button
+                    class="uk-display-block"
+                    connection-id="{{ connection_id }}"
+                    data-need-id="${needId}">
+                </eddie-connect-button>
+            `;
+
+            const eddieButton = connectButtonContainer.querySelector('eddie-connect-button');
+            if (eddieButton) {
+                attachEddieListeners(eddieButton);
+            }
+        });
+
+        // Event Listener für EDDIE Status
+        document.addEventListener("eddie-request-status", (event) => {
+            const detail = event.detail;
+            const status = detail?.status || "UNKNOWN";
+            const prefix = "[EDDIE STATUS] -";
+
+            if (status === "INVALID") {
+                console.warn(`${prefix} ${status}`, detail.message || detail);
+            } else if (status === "ACCEPTED") {
+                console.log(`${prefix} ${status}`, detail.message || detail);
+                setTimeout(() => {
+                    window.location.href = "/";
+                }, 1000);
+            } else {
+                console.debug(`${prefix} ${status}`, detail);
+            }
+        });
+    });
+</script>
+
+
+
+
+{% endblock content %}

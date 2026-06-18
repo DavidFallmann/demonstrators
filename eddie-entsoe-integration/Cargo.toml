@@ -1,0 +1,29 @@
+[package]
+name = "eprofiler"
+version = "0.9.0"
+edition = "2021"
+
+[dependencies]
+serde = { version = "1.0.215", features = ["derive"] }
+reqwest = { version = "0.12.9", features = ["json"] }
+
+serde-xml-rs = "0.6"
+serde_json = "1.0.133"
+lazy_static = "1.5"
+chrono = "0.4"
+tokio = { version = "1.41.1", features = ["full"] }
+
+# experimental:
+#cached = { version = "0.53", features = ["async_tokio_rt_multi_thread"] }
+
+actix = "0.13.5"
+actix-files = "0.6.6"
+actix-web = "4.9.0"
+actix-web-static-files = "4.0.1"
+actix-web-lab = "0.23.0"
+env_logger = "0.11.3"
+log = "0.4.22"
+static-files = "0.2.3"
+
+[build-dependencies]
+static-files = "0.2.3"
