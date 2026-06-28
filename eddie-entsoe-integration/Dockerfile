@@ -1,4 +1,4 @@
-FROM rust:1.80 AS builder
+FROM rust:latest AS builder
 WORKDIR /usr/src/eprofiler
 COPY . .
 RUN cargo install --path .
